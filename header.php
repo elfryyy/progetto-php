@@ -12,7 +12,7 @@
 
     <div class="menu med-text">
       <ul>
-        <li><a href="home.html">home</a></li>
+        <li><a href="../home.html">home</a></li>
         <li>
           <div class="details-h">
             <div class="details__title-h">

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="style-gioiello.css">
+    <link rel="stylesheet" href="../style-gioiello.css">
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,45 +23,9 @@
 </head>
 <body class="italiana-regular">
 
-  
-  <div class="header">
-    <label>
-        <input type="checkbox">
-            <div class="bar">
-                <span class="top"></span>
-                <span class="middle"></span>
-                <span class="bottom"></span>
-            </div>
-    </label>
-    
-
-
-    <div class="menu med-text">
-      <ul>
-        <li><a href="home.html">home</a></li>
-        <li>
-          <div class="details-h">
-            <div class="details__title-h">
-                Our jewels
-            </div>
-            <div class="details__content-h">
-              <a class="italiana-regular" href="anelli.html">>rings</a>
-              <a class="italiana-regular" href="orecchini.html">>earrings</a>
-              <a class="italiana-regular" href="collane.html">>necklaces</a>
-              <a class="italiana-regular" href="pendants.html">>pendants</a>
-              <a class="italiana-regular" href="newarrivals.html">>new arrivals</a>
-              <a class="italiana-regular" href="prodottiscontati.html">>promotions</a>
-            </div>
-        </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="logo">
-        <img class="immagine" src="logo2.jpeg" alt="">
-    </div>
-  </div>
-  
+  <?php 
+    require("../header.php");
+  ?>
 
     <div class="Classic-Hoop-Earring-Medium">
       <div class="slider2">
@@ -119,12 +83,12 @@
         <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true   }'>
           <div class="carousel-cell">
             <div class="carousel-cell__content zoom">
-              <img src="cigar-ring1.webp" alt="">
+              <img src="../immagini/cigar-ring1.webp" alt="">
             </div>
           </div>
           <div class="carousel-cell">
             <div class="carousel-cell__content zoom">
-              <img src="cigar-ring2.webp" alt="">
+              <img src="../immagini/cigar-ring2.webp" alt="">
             </div>
           </div>
         </div>
@@ -148,34 +112,9 @@
       </div>
 
 
-      <div class="footer">
-        <div class="col-1">
-          <h3>USEFUL LINKS</h3>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Contact</a>
-          <a href="#">Shop</a>
-          <a href="#">Blog</a>
-        </div>
-        <div class="col-2">
-          <h3>NEWSLETTER</h3>
-          <form>
-            <input type="email" placeholder="Your Email Address" required>
-            <br>
-            <button type="submit">SUBSCRIBE NOW</button>
-          </form>
-        </div>
-        <div class="col-3">
-          <h3>CONTACT</h3>
-          <p>123, XYZ Road, BSK 3 <br>Bangalore, Karnataka, IN</p>
-          <div class="social-icons">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-whatsapp"></i>
-          </div>
-        </div>
-      </div>
+      <?php 
+         require("../footer.php");
+      ?>
       
 
     </div>
