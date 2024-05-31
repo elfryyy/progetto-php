@@ -1,0 +1,16 @@
+@import url("style-home.css");
+
+.contenuto {
+	width: 550px;
+	margin: auto;
+	padding: 15px;
+	text-align: center;
+	/* background-color: white; */
+	padding-bottom: 40px;
+}
+
+.tab_input{
+	text-align: left;
+	margin: auto;
+}
+
