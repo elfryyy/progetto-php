@@ -26,7 +26,7 @@
     padding:0px;
     background-color:#f9f8f3;
     height: 100px;
-    justify-content: center;
+    
 }
 
 a{
@@ -59,12 +59,18 @@ p{
     font-weight: bold;
   }
 
+.box-login{
+    align-self: center;
+    text-align: center;
+   width: 25%;
+}
 /* HAMBURGER */
 
 
 input[type="checkbox"]{
     visibility: hidden;
     display: none;
+    width: 25%;
 }
 
 .bar{
@@ -200,13 +206,15 @@ input[type="checkbox"]:checked ~ .bar .middle{
 
 /* LOGO */
 .logo{
-    margin: 0 auto;
+    
+    width: 50%;
 }
 
 .immagine{
     width: 100px;
     height: 100px;
     transform: translateX(-25%);
+    align-self: center;
 }
 
 @media (max-width: 768px){
