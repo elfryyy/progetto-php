@@ -398,12 +398,6 @@ input[type="checkbox"]:checked ~ .bar .middle{
     background-size: cover;
 }
 
-.rings:hover {
-    transform: scale(1.034);
-    background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/anelli.jpeg') no-repeat center center ;
-    background-size: cover;
-}
 .charms:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
