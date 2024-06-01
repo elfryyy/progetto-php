@@ -16,7 +16,7 @@
             $riga = $ris->fetch_assoc();
             $categoria = $riga['categoria'];
             $prezzo1 = number_format($riga['prezzo'], 2);
-            $prezzo2=$prezzo1/2;
+            $prezzo2= number_format($prezzo1/2, 2);
             $descrizione = $riga['descrizione'];
             $nome = $riga['nome'];
             $specifiche = $riga["specifiche"];
@@ -116,106 +116,194 @@
             foreach ($array as $elemento) {
                 $lista .= "<li>{$elemento}</li>\n";
             }
-            echo <<<EOD
-                    <div class="descrizione reveal">
-                        <h1>$nome</h1>
-                        <p class="price_1 remove">$$prezzo2</p>
-                        <p class="price_2 "> $ $prezzo1 </p>
-                        <h2>description</h2>
-                        <p>$descrizione</p>
-                        <div class="details">
-                        <div class="details__title">
-                            <h3>details & specs</h3>
+            
+                echo <<<EOD
+                        <div class="descrizione reveal">
+                                <h1>$nome</h1>
+                                <p class="price_1 remove">$ $prezzo2</p>
+                                <p class="price_2 "> $ $prezzo1 </p>
+                                <h2>description</h2>
+                                <p>$descrizione</p>
+                                <div class="details">
+                                    <div class="details__title">
+                                        <h3>details & specs</h3>
+                                    </div>
+                                    <div class="details__content">
+                                        <ul>
+                                        $lista
+                                        </ul>
+                                    </div>
+                                </div>
+                        EOD;
+            if($categoria==1){
+                echo <<<EOD
+                                <div class="bottone2 reveal">
+                                    <h2>ring size</h2>
+                                    <div class="selector-container">
+                                        <ul class="arial">
+                                            <li class="active 3">3</li>
+                                            <li class="4">4</li>
+                                            <li class="5">5</li>
+                                            <li class="6">6</li>
+                                            <li class="7">7</li>
+                                            <li class="8">8</li>
+                                        </ul>
+                                        <div class="line-selector"></div>
+                                    </div>
+                                        <a class="add-to-cart" href="">Add to cart</a>
+                                </div>
                         </div>
-                            <div class="details__content">
-                            <ul>
-                               $lista
-                            </ul>
-                            </div>
-                    </div>
+                        EOD;
+            }
+            elseif($categoria==2){
+                
+                echo <<<EOD
+                                <div class="bottone2 reveal">
+                                    <h2 class="earring-qty">earring quantity</h2>
+                                    <div class="selector-container">
+                                        <ul>
+                                            <li class="active pair"> Pair</li>
+                                            <li class="single">Single</li>
+                                        </ul>
+                                        <div class="line-selector"></div>
+                                   </div>
+                                        <a class="add-to-cart" href="">Add to cart</a>
+                               </div>
+                        </div>
+                        EOD;
 
-                    <div class="bottone2 reveal">
-                            <h2 class="earring-qty">earring quantity</h2>
+            }
+            elseif($categoria==3){
+                
+                echo <<<EOD
+                                <div class="bottone2 reveal">
+                                    <h2>Chain Length</h2>
+                                    <div class="selector-container">
+                                        <ul class="arial">
+                                            <li class="active 18">18</li>
+                                            <li class="20">20</li>
+                                            <li class="22">22</li>
+                                            <li class="24">24</li>
+                                        </ul>
+                                        <div class="line-selector"></div>
+                                   </div>
+                                        <a class="add-to-cart" href="">Add to cart</a>
+                                </div>
+                        </div>
+                        EOD;
+
+            }
+                    
+            if($foto5==""){
+                echo <<<EOD
+                        <div class="slider">
+                            <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true   }'>
+                            <div class="carousel-cell">
+                                <div class="carousel-cell__content zoom">
+                                <img src="../immagini/$foto1" alt="">
+                                </div>
+                            </div>
+                            <div class="carousel-cell">
+                                <div class="carousel-cell__content zoom">
+                                <img src="../immagini/$foto2" alt="">
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        EOD;
+                    }
+            else{
+                echo <<<EOD
+                        <div class="slider">
+                            <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true   }'>
+                            <div class="carousel-cell">
+                                <div class="carousel-cell__content zoom">
+                                <img src="../immagini/$foto1" alt="">
+                                </div>
+                            </div>
+                            <div class="carousel-cell">
+                                <div class="carousel-cell__content zoom">
+                                <img src="../immagini/$foto2" alt="">
+                                </div>
+                            </div>
+                            <div class="carousel-cell">
+                                <div class="carousel-cell__content zoom">
+                                <img src="../immagini/$foto3" alt="">
+                                </div>
+                            </div>
+                            <div class="carousel-cell">
+                                <div class="carousel-cell__content zoom">
+                                <img src="../immagini/$foto4" alt="">
+                                </div>
+                            </div>
+                            <div class="carousel-cell">
+                                <div class="carousel-cell__content zoom">
+                                <img src="../immagini/$foto5" alt="">
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        EOD;    
+                    }
+            if($categoria==1){
+                echo <<<EOD
+                        <div class="bottone1 reveal">
+                            <h2>ring size</h2>
                             <div class="selector-container">
-                                <ul>
-                                    <li class="active pair"> Pair</li>
-                                    <li class="single">Single</li>
+                                <ul class="arial">
+                                    <li class="active 3">3</li>
+                                    <li class="4">4</li>
+                                    <li class="5">5</li>
+                                    <li class="6">6</li>
+                                    <li class="7">7</li>
+                                    <li class="8">8</li>
                                 </ul>
                                 <div class="line-selector"></div>
                             </div>
-                            <a class="add-to-cart" href="">Add to cart</a>
+                                <a class="add-to-cart" href="">Add to cart</a>
                         </div>
-                    </div>
-                    EOD;
-                    if($foto5==""){
-                        echo <<<EOD
-                                <div class="slider">
-                                    <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true   }'>
-                                    <div class="carousel-cell">
-                                        <div class="carousel-cell__content zoom">
-                                        <img src="../immagini/$foto1" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-cell">
-                                        <div class="carousel-cell__content zoom">
-                                        <img src="../immagini/$foto2" alt="">
-                                        </div>
-                                    </div>
-                                    </div>
+                       EOD;
+
+            }
+            elseif($categoria==2){
+                
+                echo <<<EOD
+                                <div class="bottone1 reveal">
+                                    <h2 class="earring-qty">earring quantity</h2>
+                                    <div class="selector-container">
+                                        <ul>
+                                            <li class="active pair"> Pair</li>
+                                            <li class="single">Single</li>
+                                        </ul>
+                                        <div class="line-selector"></div>
                                 </div>
-                                EOD;
-                    }
-                    else{
-                        echo <<<EOD
-                                <div class="slider">
-                                  <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true   }'>
-                                    <div class="carousel-cell">
-                                        <div class="carousel-cell__content zoom">
-                                        <img src="../immagini/$foto1" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-cell">
-                                        <div class="carousel-cell__content zoom">
-                                        <img src="../immagini/$foto2" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-cell">
-                                        <div class="carousel-cell__content zoom">
-                                        <img src="../immagini/$foto3" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-cell">
-                                        <div class="carousel-cell__content zoom">
-                                        <img src="../immagini/$foto4" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-cell">
-                                        <div class="carousel-cell__content zoom">
-                                        <img src="../immagini/$foto5" alt="">
-                                        </div>
-                                    </div>
-                                  </div>
+                                        <a class="add-to-cart" href="">Add to cart</a>
+                               </div>
+                        </div>
+                        EOD;
+
+            }
+            elseif($categoria==3){
+                
+                echo <<<EOD
+                                <div class="bottone1 reveal">
+                                    <h2>Chain Length</h2>
+                                    <div class="selector-container">
+                                        <ul class="arial">
+                                            <li class="active 18">18</li>
+                                            <li class="20">20</li>
+                                            <li class="22">22</li>
+                                            <li class="24">24</li>
+                                        </ul>
+                                        <div class="line-selector"></div>
+                                   </div>
+                                        <a class="add-to-cart" href="">Add to cart</a>
                                 </div>
-                                EOD;    
-                    }
+                        </div>
+                        EOD;
+
+            }
             
-        echo <<<EOD
-                <div class="bottone1 reveal">
-                    <h2>ring size</h2>
-                    <div class="selector-container">
-                        <ul class="arial">
-                            <li class="active 3">3</li>
-                            <li class="4">4</li>
-                            <li class="5">5</li>
-                            <li class="6">6</li>
-                            <li class="7">7</li>
-                            <li class="8">8</li>
-                        </ul>
-                        <div class="line-selector"></div>
-                    </div>
-                        <a class="add-to-cart" href="">Add to cart</a>
-                </div>
-               EOD;
 
 
         ?>
@@ -224,8 +312,18 @@
             require('footer.php');
         ?>	
     </div>
+    
     <?php 
+      if($categoria==1){
         require('../java/rings.php');
+      }
+      elseif($categoria==2){
+        require('../java/earrings.php');
+      }
+      elseif($categoria==3){
+        require('../java/necklaces.php');
+      }
+
     ?>
 
 </body>
