@@ -46,27 +46,11 @@
 
 </head>
 <body>
-	<?php require("..header.php");?>
-	<div class="contenuto">
-        
-		<h1 style="text-align: center; margin-top: 0px"><?php echo $titolo?></h1>
-        <div class="copertina-fr">
-            <?php
-                echo "<img src='../immagini/$copertina' alt='$copertina'>";
-            ?>
-        </div>
-        <div class="descrizione">
-            <?php
-               
-                $paragrafi = explode("\n", $descrizione_txt);
-                foreach ($paragrafi as $paragrafo) {
-                    echo "<p>$paragrafo</p>";
-                }
-                
-            ?>
-        </div>
-		
-	</div>
+	<?php require("../header.php");
+    ?>
+
+
+
 	<?php 
 		require('../footer.php');
 	?>	
