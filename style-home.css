@@ -315,7 +315,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
 }
 
 .rings{
-    background:url('immagini/rings.jpeg') no-repeat center center ;
+    background:url('immagini/rings.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -325,7 +325,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .earrings{
-    background:url('immagini/orecchini.jpeg') no-repeat center center ;
+    background:url('immagini/earrings.jpg') no-repeat center center ;
     width:33.33%;
     display: block;
     background-size: cover;
@@ -335,7 +335,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .necklaces{
-    background:url('immagini/collane.jpeg') no-repeat center center ;
+    background:url('immagini/necklaces.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -345,7 +345,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .charms{
-    background:url('immagini/pendanti4.jpeg') no-repeat center center ;
+    background:url('immagini/pendants.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -355,7 +355,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .new-arrivals{
-    background:url('immagini/novità2.jpeg') no-repeat center center ;
+    background:url('immagini/new-arrivals.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -366,7 +366,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .promotions{
-    background:url('immagini/promozioni.jpeg') no-repeat center center ;
+    background:url('immagini/promotions.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -380,42 +380,42 @@ input[type="checkbox"]:checked ~ .bar .middle{
 .rings:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/rings.jpeg') no-repeat center center ;
+    url('immagini/rings.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .earrings:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/orecchini.jpeg') no-repeat center center ;
+    url('immagini/earrings.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .necklaces:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/collane.jpeg') no-repeat center center ;
+    url('immagini/necklaces.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .charms:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/pendanti4.jpeg') no-repeat center center ;
+    url('immagini/pendants.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .new-arrivals:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/novità2.jpeg') no-repeat center center ;
+    url('immagini/new-arrivals.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .promotions:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/promozioni.jpeg') no-repeat center center ;
+    url('immagini/promotions.jpg') no-repeat center center ;
     background-size: cover;
 }
 

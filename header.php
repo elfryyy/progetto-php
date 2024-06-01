@@ -32,6 +32,6 @@
     </div>
 
     <div class="logo">
-        <img class="immagine" src="../immagini/logo2.jpeg" alt="">
+        <img class="immagine" src="../immagini/logo.jpg" alt="">
     </div>
   </div>
