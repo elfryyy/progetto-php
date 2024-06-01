@@ -193,6 +193,16 @@
                         EOD;
 
             }
+            elseif($categoria==4){
+                
+                echo <<<EOD
+                                <div class="bottone2-p reveal">
+                                <a class="add-to-cart" href="">Add to cart</a>
+                            </div>
+                        </div>
+                        EOD;
+
+            }
                     
             if($foto5==""){
                 echo <<<EOD
@@ -268,18 +278,18 @@
             elseif($categoria==2){
                 
                 echo <<<EOD
-                                <div class="bottone1 reveal">
-                                    <h2 class="earring-qty">earring quantity</h2>
-                                    <div class="selector-container">
-                                        <ul>
-                                            <li class="active pair"> Pair</li>
-                                            <li class="single">Single</li>
-                                        </ul>
-                                        <div class="line-selector"></div>
-                                </div>
+                        <div class="bottone1 reveal">
+                            <h2 class="earring-qty">earring quantity</h2>
+                            <div class="selector-container">
+                                <ul>
+                                    <li class="active pair"> Pair</li>
+                                    <li class="single">Single</li>
+                                </ul>
+                                <div class="line-selector"></div>
+                            </div>
                                         <a class="add-to-cart" href="">Add to cart</a>
                                </div>
-                        </div>
+                        
                         EOD;
 
             }
@@ -299,9 +309,17 @@
                                    </div>
                                         <a class="add-to-cart" href="">Add to cart</a>
                                 </div>
-                        </div>
+                        
                         EOD;
 
+            }
+            elseif($categoria==4){
+            echo <<<EOD
+                            <div class="bottone1-p reveal">
+                            <a class="add-to-cart" href="">Add to cart</a>
+                        </div>
+                    
+                    EOD;
             }
             
 
@@ -311,8 +329,9 @@
         <?php 
             require('footer.php');
         ?>	
+
     </div>
-    
+
     <?php 
       if($categoria==1){
         require('../java/rings.php');
@@ -322,6 +341,9 @@
       }
       elseif($categoria==3){
         require('../java/necklaces.php');
+      }
+      elseif($categoria==4){
+        require('../java/pendant.php');
       }
 
     ?>
