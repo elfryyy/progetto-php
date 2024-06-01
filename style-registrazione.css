@@ -57,3 +57,27 @@ form .user-details .input-box{
 .user-details .input-box input:valid{
     border-color: black;
 }
+
+form .button{
+    height: 45px;
+    margin: 45px 0;
+}
+form .register{
+    color: white;
+    cursor: pointer;/* stile del cursore del mouse */
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    /*  */
+    background: #222;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+form .button input:hover{
+    background: #000;
+    transform: scale(1.05,1);
+}
