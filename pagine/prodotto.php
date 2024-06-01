@@ -133,25 +133,89 @@
                             </ul>
                             </div>
                     </div>
+
+                    <div class="bottone2 reveal">
+                            <h2 class="earring-qty">earring quantity</h2>
+                            <div class="selector-container">
+                                <ul>
+                                    <li class="active pair"> Pair</li>
+                                    <li class="single">Single</li>
+                                </ul>
+                                <div class="line-selector"></div>
+                            </div>
+                            <a class="add-to-cart" href="">Add to cart</a>
+                        </div>
+                    </div>
                     EOD;
+                    if($foto5==""){
+                        echo <<<EOD
+                                <div class="slider">
+                                    <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true   }'>
+                                    <div class="carousel-cell">
+                                        <div class="carousel-cell__content zoom">
+                                        <img src="../immagini/$foto1" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-cell">
+                                        <div class="carousel-cell__content zoom">
+                                        <img src="../immagini/$foto2" alt="">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                EOD;
+                    }
+                    else{
+                        echo <<<EOD
+                                <div class="slider">
+                                  <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true   }'>
+                                    <div class="carousel-cell">
+                                        <div class="carousel-cell__content zoom">
+                                        <img src="../immagini/$foto1" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-cell">
+                                        <div class="carousel-cell__content zoom">
+                                        <img src="../immagini/$foto2" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-cell">
+                                        <div class="carousel-cell__content zoom">
+                                        <img src="../immagini/$foto3" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-cell">
+                                        <div class="carousel-cell__content zoom">
+                                        <img src="../immagini/$foto4" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-cell">
+                                        <div class="carousel-cell__content zoom">
+                                        <img src="../immagini/$foto5" alt="">
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                EOD;    
+                    }
             
-        // echo <<<EOD
-        //         <div class="bottone1 reveal">
-        //             <h2>ring size</h2>
-        //             <div class="selector-container">
-        //                 <ul class="arial">
-        //                     <li class="active 3">3</li>
-        //                     <li class="4">4</li>
-        //                     <li class="5">5</li>
-        //                     <li class="6">6</li>
-        //                     <li class="7">7</li>
-        //                     <li class="8">8</li>
-        //                 </ul>
-        //                 <div class="line-selector"></div>
-        //             </div>
-        //                 <a class="add-to-cart" href="">Add to cart</a>
-        //         </div>
-        //        EOD;
+        echo <<<EOD
+                <div class="bottone1 reveal">
+                    <h2>ring size</h2>
+                    <div class="selector-container">
+                        <ul class="arial">
+                            <li class="active 3">3</li>
+                            <li class="4">4</li>
+                            <li class="5">5</li>
+                            <li class="6">6</li>
+                            <li class="7">7</li>
+                            <li class="8">8</li>
+                        </ul>
+                        <div class="line-selector"></div>
+                    </div>
+                        <a class="add-to-cart" href="">Add to cart</a>
+                </div>
+               EOD;
 
 
         ?>
