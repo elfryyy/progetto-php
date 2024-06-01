@@ -315,7 +315,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
 }
 
 .rings{
-    background:url('immagini/anelli.jpeg') no-repeat center center ;
+    background:url('immagini/rings.jpeg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -380,7 +380,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
 .rings:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/anelli.jpeg') no-repeat center center ;
+    url('immagini/rings.jpeg') no-repeat center center ;
     background-size: cover;
 }
 
