@@ -24,7 +24,7 @@
 <body class="italiana-regular">
 
   <?php 
-    require("../header.php");
+    require("../pagine/header.php");
   ?>
 
     <div class="Classic-Hoop-Earring-Medium">
@@ -113,7 +113,7 @@
 
 
       <?php 
-         require("../footer.php");
+         require("../pagine/footer.php");
       ?>
       
 
