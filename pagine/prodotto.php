@@ -15,7 +15,8 @@
         } else {
             $riga = $ris->fetch_assoc();
             $categoria = $riga['categoria'];
-            $prezzo = $riga['prezzo'];
+            $prezzo1 = number_format($riga['prezzo'], 2);
+            $prezzo2=$prezzo1/2;
             $descrizione = $riga['descrizione'];
             $nome = $riga['nome'];
             $specifiche = $riga["specifiche"];
@@ -59,9 +60,6 @@
     ?>
     <div class="Classic-Hoop-Earring-Medium"> 
         <?php 
-            
-
-
             if($foto5==""){
                 echo <<<EOD
                         <div class="slider2">
@@ -81,7 +79,6 @@
                         EOD;
             }
             else{
-
                 echo <<<EOD
                         <div class="slider2">
                           <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true   }'>
@@ -113,8 +110,30 @@
                           </div>
                         </div>
                         EOD;    
-
             }
+            $array = explode('.', $specifiche);
+            $lista="";
+            foreach ($array as $elemento) {
+                $lista .= "<li>{$elemento}</li>\n";
+            }
+            echo <<<EOD
+                    <div class="descrizione reveal">
+                        <h1>$nome</h1>
+                        <p class="price_1 remove">$$prezzo2</p>
+                        <p class="price_2 "> $ $prezzo1 </p>
+                        <h2>description</h2>
+                        <p>$descrizione</p>
+                        <div class="details">
+                        <div class="details__title">
+                            <h3>details & specs</h3>
+                        </div>
+                            <div class="details__content">
+                            <ul>
+                               $lista
+                            </ul>
+                            </div>
+                    </div>
+                    EOD;
             
         // echo <<<EOD
         //         <div class="bottone1 reveal">
