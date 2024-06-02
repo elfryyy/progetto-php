@@ -32,13 +32,13 @@
    ?>
 
     <section class="products" id="products">
-        <h1 class="heading">Rings <span> </span></h1>
+        <h1 class="heading"><?php echo "$categoria"; ?> <span> </span></h1>
 
          <div class="box-container">
 
     <?php 
 
-                if($categoria=="new"){
+                if($categoria=="New"){
 
                     $sql = "SELECT prodotti.cod_prodotto, prodotti.nome, prodotti.prezzo, 
                     prodotti.foto1
@@ -72,7 +72,7 @@
                         }}
 
 
-                } elseif($categoria=="discounted"){
+                } elseif($categoria=="Discounted"){
                     $sql = "SELECT prodotti.cod_prodotto, prodotti.nome, prodotti.prezzo, 
                     prodotti.foto1, prodotti.sconto
                     FROM prodotti
@@ -113,7 +113,7 @@
                     $sql = "SELECT prodotti.cod_prodotto, prodotti.nome, prodotti.prezzo, 
                     prodotti.foto1, prodotti.sconto, prodotti.nuovo
                     FROM prodotti
-                    WHERE categoria=$categoria";
+                    WHERE categoria='$categoria'";
                     $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
                      if ($ris->num_rows == 0) {
                          echo "<p>Questa categoria non ha prodotti</p>";

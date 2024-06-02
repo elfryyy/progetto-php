@@ -135,17 +135,17 @@
                                     </div>
                                 </div>
                         EOD;
-            if($categoria==1){
+            if($categoria=="Rings"){
                 echo <<<EOD
-                                <div class="bottone2 reveal">                   
-                EOD;
+                        <div class="bottone2 reveal">                   
+                        EOD;
                 if($cod_prodotto==2){
                 echo <<<EOD
                             <h2 class="stone-title">stone type</h2>
                             <div class="selector-container">
                                 <ul class="stone-img">
                                 <a href="prodotto.php?cod_prodotto=2"><img  class="scale" src="../immagini/stone1.jpg" alt=""></a>
-                                <a href=prodotto.php?cod_prodotto=3""><img src="../immagini/stone2.jpg" alt=""></a>
+                                <a href="prodotto.php?cod_prodotto=3"><img src="../immagini/stone2.jpg" alt=""></a>
                                 <a href="prodotto.php?cod_prodotto=4"><img src="../immagini/stone3.jpg" alt=""></a>
                                 </ul>
                             </div>
@@ -156,7 +156,7 @@
                             <h2 class="stone-title">stone type</h2>
                             <div class="selector-container">
                                 <ul class="stone-img">
-                                <a href=pagine/prodotto.php?cod_prodotto=2""><img  src="../immagini/stone1.jpg" alt=""></a>
+                                <a href="pagine/prodotto.php?cod_prodotto=2"><img  src="../immagini/stone1.jpg" alt=""></a>
                                 <a href="pagine/prodotto.php?cod_prodotto=3"><img class="scale" src="../immagini/stone2.jpg" alt=""></a>
                                 <a href="pagine/prodotto.php?cod_prodotto=4"><img src="../immagini/stone3.jpg" alt=""></a>
                                 </ul>
@@ -195,7 +195,7 @@
                         </div>
                         EOD;
             }
-            elseif($categoria==2){
+            elseif($categoria=="Earrings"){
                 
                 echo <<<EOD
                                 <div class="bottone2 reveal">
@@ -213,7 +213,7 @@
                         EOD;
 
             }
-            elseif($categoria==3){
+            elseif($categoria=="Necklaces"){
                 
                 echo <<<EOD
                                 <div class="bottone2 reveal">
@@ -233,7 +233,7 @@
                         EOD;
 
             }
-            elseif($categoria==4){
+            elseif($categoria=="Pendants"){
                 
                 echo <<<EOD
                                 <div class="bottone2-p reveal">
@@ -295,7 +295,7 @@
                         </div>
                         EOD;    
                     }
-            if($categoria==1){
+            if($categoria=="Rings"){
                 echo <<<EOD
                                 <div class="bottone1 reveal">                   
                         EOD;
@@ -353,7 +353,7 @@
                             EOD;
 
             }
-            elseif($categoria==2){
+            elseif($categoria=="Earrings"){
                 
                 echo <<<EOD
                         <div class="bottone1 reveal">
@@ -371,7 +371,7 @@
                         EOD;
 
             }
-            elseif($categoria==3){
+            elseif($categoria=="Necklaces"){
                 
                 echo <<<EOD
                                 <div class="bottone1 reveal">
@@ -391,7 +391,7 @@
                         EOD;
 
             }
-            elseif($categoria==4){
+            elseif($categoria=="Pendants"){
             echo <<<EOD
                             <div class="bottone1-p reveal">
                             <a class="add-to-cart" href="">Add to cart</a>
@@ -411,16 +411,16 @@
     </div>
 
     <?php 
-      if($categoria==1){
+      if($categoria=="Rings"){
         require('../java/rings.php');
       }
-      elseif($categoria==2){
+      elseif($categoria=="Earrings"){
         require('../java/earrings.php');
       }
-      elseif($categoria==3){
+      elseif($categoria=="Necklaces"){
         require('../java/necklaces.php');
       }
-      elseif($categoria==4){
+      elseif($categoria=="Pendants"){
         require('../java/pendant.php');
       }
 
