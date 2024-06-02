@@ -37,28 +37,26 @@
          <div class="box-container">
 
     <?php 
-                $sql = "SELECT prodotti.cod_prodotto, prodotti.nome, prodotti.prezzo, 
-                prodotti.foto1, prodotti.sconto, prodotti.nuovo
-                FROM prodotti
-                WHERE categoria=$categoria";
-                $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
-                 if ($ris->num_rows == 0) {
-                     echo "<p>Questa categoria non ha prodotti</p>";
-                 } else {
-                     foreach($ris as $riga){
-                        $cod_prodotto=$riga['cod_prodotto'];
-                        $prezzo = number_format($riga['prezzo'], 2);
-                        $nome = $riga['nome'];
-                        $foto1 = $riga["foto1"];
-                        $nuovo = $riga['nuovo'];
-                        $sconto= $riga["sconto"];
 
-                       if($sconto){
-                            $prezzo_s=number_format(($prezzo/100)*(100-$sconto), 2);
+                if($categoria=="new"){
 
-                                echo <<<EOD
+                    $sql = "SELECT prodotti.cod_prodotto, prodotti.nome, prodotti.prezzo, 
+                    prodotti.foto1
+                    FROM prodotti
+                    WHERE nuovo=1";
+                    $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
+                     if ($ris->num_rows == 0) {
+                         echo "<p>Non ci sono nuovi prodotti</p>";
+                    }
+                     else{
+                         foreach($ris as $riga){
+                            $cod_prodotto=$riga['cod_prodotto'];
+                            $prezzo = number_format($riga['prezzo'], 2);
+                            $nome = $riga['nome'];
+                            $foto1 = $riga["foto1"];
+
+                            echo <<<EOD
                                         <div class="box">
-                                        <span class="discount">-$sconto%</span>
                                             <div class="image">
                                                 <img src="../immagini/$foto1" alt="">
                                                 <div class="icons">
@@ -67,66 +65,203 @@
                                             </div>
                                             <div class="content">
                                                 <h3>$nome</h3>
-                                                <div class="price">$$prezzo_s <span>$$prezzo</span> </div>
+                                                <div class="price">$$prezzo </div>
+                                            </div>
+                                        </div>
+                                      EOD;
+                        }}
+
+
+                } elseif($categoria=="discounted"){
+                    $sql = "SELECT prodotti.cod_prodotto, prodotti.nome, prodotti.prezzo, 
+                    prodotti.foto1, prodotti.sconto
+                    FROM prodotti
+                    WHERE sconto!=''";
+                    $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
+                     if ($ris->num_rows == 0) {
+                         echo "<p>Non ci sono nuovi prodotti</p>";
+                    }
+                     else {
+                         foreach($ris as $riga){
+                            $cod_prodotto=$riga['cod_prodotto'];
+                            $prezzo = number_format($riga['prezzo'], 2);
+                            $nome = $riga['nome'];
+                            $foto1 = $riga["foto1"];
+                            $sconto=$riga["sconto"];
+                            $prezzo_s=number_format(($prezzo/100)*(100-$sconto), 2);
+
+
+                            echo <<<EOD
+                                        <div class="box">
+                                            <span class="discount">-$sconto%</span>
+                                            <div class="image">
+                                                <img src="../immagini/$foto1" alt="">
+                                                <div class="icons">
+                                                    <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <h3>$nome</h3>
+                                                <div class="price">$$prezzo_s <span>$$prezzo</span>  </div>
+                                            </div>
+                                        </div>
+                                      EOD;
+                        }
+                    }
+
+                }else{
+                    $sql = "SELECT prodotti.cod_prodotto, prodotti.nome, prodotti.prezzo, 
+                    prodotti.foto1, prodotti.sconto, prodotti.nuovo
+                    FROM prodotti
+                    WHERE categoria=$categoria";
+                    $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
+                     if ($ris->num_rows == 0) {
+                         echo "<p>Questa categoria non ha prodotti</p>";
+                     } else {
+                         foreach($ris as $riga){
+                            $cod_prodotto=$riga['cod_prodotto'];
+                            $prezzo = number_format($riga['prezzo'], 2);
+                            $nome = $riga['nome'];
+                            $foto1 = $riga["foto1"];
+                            $nuovo = $riga['nuovo'];
+                            $sconto= $riga["sconto"];
+    
+                           if($sconto){
+                                $prezzo_s=number_format(($prezzo/100)*(100-$sconto), 2);
+    
+                                    echo <<<EOD
+                                            <div class="box">
+                                            <span class="discount">-$sconto%</span>
+                                                <div class="image">
+                                                    <img src="../immagini/$foto1" alt="">
+                                                    <div class="icons">
+                                                        <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h3>$nome</h3>
+                                                    <div class="price">$$prezzo_s <span>$$prezzo</span> </div>
+                                                </div>
+                                            </div>
+                                        
+                                            EOD;
+                           }elseif($nuovo){
+                                echo <<<EOD
+                                        <div class="box">
+                                        <span class="discountnew">NEW</span>
+                                            <div class="image">
+                                                <img src="../immagini/$foto1" alt="">
+                                                <div class="icons">
+                                                    <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <h3>$nome</h3>
+                                                <div class="price">$$prezzo </div>
                                             </div>
                                         </div>
                                     
                                         EOD;
-                       }elseif($nuovo){
-                            echo <<<EOD
-                                    <div class="box">
-                                    <span class="discountnew">NEW</span>
-                                        <div class="image">
-                                            <img src="../immagini/$foto1" alt="">
-                                            <div class="icons">
-                                                <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+    
+                           }else{
+                                echo <<<EOD
+                                        <div class="box">
+                                            <div class="image">
+                                                <img src="../immagini/$foto1" alt="">
+                                                <div class="icons">
+                                                    <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <h3>$nome</h3>
+                                                <div class="price">$$prezzo </div>
                                             </div>
                                         </div>
-                                        <div class="content">
-                                            <h3>$nome</h3>
-                                            <div class="price">$$prezzo </div>
-                                        </div>
-                                    </div>
-                                
-                                    EOD;
-
-                       }else{
-                            echo <<<EOD
-                                    <div class="box">
-                                        <div class="image">
-                                            <img src="../immagini/$foto1" alt="">
-                                            <div class="icons">
-                                                <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <h3>$nome</h3>
-                                            <div class="price">$$prezzo </div>
-                                        </div>
-                                    </div>
-                                
-                                    EOD;
-
-
-                       }
-                        
-                        // echo <<<EOD
-                        //         <div class="box">
-                        //             <div class="image">
-                        //                 <img src="../immagini/$foto1" alt="">
-                        //                 <div class="icons">
-                        //                     <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
-                        //                 </div>
-                        //             </div>
-                        //             <div class="content">
-                        //                 <h3>$nome</h3>
-                        //                 <div class="price">$$prezzo </div>
-                        //             </div>
-                        //         </div>
-                               
-                        //         EOD;
+                                    
+                                        EOD;
+    
+    
+                           }
+                            
+                         }
                      }
-                 }
+
+                }
+                // $sql = "SELECT prodotti.cod_prodotto, prodotti.nome, prodotti.prezzo, 
+                // prodotti.foto1, prodotti.sconto, prodotti.nuovo
+                // FROM prodotti
+                // WHERE categoria=$categoria";
+                // $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
+                //  if ($ris->num_rows == 0) {
+                //      echo "<p>Questa categoria non ha prodotti</p>";
+                //  } else {
+                //      foreach($ris as $riga){
+                //         $cod_prodotto=$riga['cod_prodotto'];
+                //         $prezzo = number_format($riga['prezzo'], 2);
+                //         $nome = $riga['nome'];
+                //         $foto1 = $riga["foto1"];
+                //         $nuovo = $riga['nuovo'];
+                //         $sconto= $riga["sconto"];
+
+                //        if($sconto){
+                //             $prezzo_s=number_format(($prezzo/100)*(100-$sconto), 2);
+
+                //                 echo <<<EOD
+                //                         <div class="box">
+                //                         <span class="discount">-$sconto%</span>
+                //                             <div class="image">
+                //                                 <img src="../immagini/$foto1" alt="">
+                //                                 <div class="icons">
+                //                                     <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                //                                 </div>
+                //                             </div>
+                //                             <div class="content">
+                //                                 <h3>$nome</h3>
+                //                                 <div class="price">$$prezzo_s <span>$$prezzo</span> </div>
+                //                             </div>
+                //                         </div>
+                                    
+                //                         EOD;
+                //        }elseif($nuovo){
+                //             echo <<<EOD
+                //                     <div class="box">
+                //                     <span class="discountnew">NEW</span>
+                //                         <div class="image">
+                //                             <img src="../immagini/$foto1" alt="">
+                //                             <div class="icons">
+                //                                 <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                //                             </div>
+                //                         </div>
+                //                         <div class="content">
+                //                             <h3>$nome</h3>
+                //                             <div class="price">$$prezzo </div>
+                //                         </div>
+                //                     </div>
+                                
+                //                     EOD;
+
+                //        }else{
+                //             echo <<<EOD
+                //                     <div class="box">
+                //                         <div class="image">
+                //                             <img src="../immagini/$foto1" alt="">
+                //                             <div class="icons">
+                //                                 <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                //                             </div>
+                //                         </div>
+                //                         <div class="content">
+                //                             <h3>$nome</h3>
+                //                             <div class="price">$$prezzo </div>
+                //                         </div>
+                //                     </div>
+                                
+                //                     EOD;
+
+
+                //        }
+                        
+                //      }
+                //  }
           ?>
            
 

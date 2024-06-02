@@ -315,7 +315,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
 }
 
 .rings{
-    background:url('immagini/rings.jpg') no-repeat center center ;
+    background:url('immagini/r-solis1.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -325,7 +325,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .earrings{
-    background:url('immagini/earrings.jpg') no-repeat center center ;
+    background:url('immagini/e-baroque1.jpg') no-repeat center center ;
     width:33.33%;
     display: block;
     background-size: cover;
@@ -335,7 +335,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .necklaces{
-    background:url('immagini/necklaces.jpg') no-repeat center center ;
+    background:url('immagini/n-oval1.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -345,7 +345,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .charms{
-    background:url('immagini/pendants.jpg') no-repeat center center ;
+    background:url('immagini/p-star1.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -355,7 +355,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .new-arrivals{
-    background:url('immagini/new-arrivals.jpg') no-repeat center center ;
+    background:url('immagini/n-heart2.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -366,7 +366,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
     border: 4px solid #f9f8f3;
 }
 .promotions{
-    background:url('immagini/promotions.jpg') no-repeat center center ;
+    background:url('immagini/e-tear3.jpg') no-repeat center center ;
     background-size: cover;
     width:33.33%;
     display: block;
@@ -380,42 +380,42 @@ input[type="checkbox"]:checked ~ .bar .middle{
 .rings:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/rings.jpg') no-repeat center center ;
+    url('immagini/r-solis1.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .earrings:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/earrings.jpg') no-repeat center center ;
+    url('immagini/e-baroque1.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .necklaces:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/necklaces.jpg') no-repeat center center ;
+    url('immagini/n-oval1.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .charms:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/pendants.jpg') no-repeat center center ;
+    url('immagini/p-star1.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .new-arrivals:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/new-arrivals.jpg') no-repeat center center ;
+    url('immagini/n-heart2.jpg') no-repeat center center ;
     background-size: cover;
 }
 
 .promotions:hover {
     transform: scale(1.034);
     background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-    url('immagini/promotions.jpg') no-repeat center center ;
+    url('immagini/e-tear3.jpg') no-repeat center center ;
     background-size: cover;
 }
 
@@ -430,6 +430,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
 .cards__card__txt{
    display: inline-block;
    font-size: 180%;
+   
 }
 .card__cards__riga{
     height:100%;
