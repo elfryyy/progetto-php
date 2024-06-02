@@ -164,7 +164,7 @@
                         EOD;
 
                 }
-                elseif($cod_prodotto=4){
+                elseif($cod_prodotto==4){
                     echo <<<EOD
                                 <h2 class="stone-title">stone type</h2>
                                 <div class="selector-container">
@@ -296,48 +296,44 @@
                         EOD;    
                     }
             if($categoria==1){
-
                 echo <<<EOD
                                 <div class="bottone1 reveal">                   
                         EOD;
-                if($cod_prodotto==2){
-                echo <<<EOD
-                            <h2 class="stone-title">stone type</h2>
-                            <div class="selector-container">
-                                <ul class="stone-img">
-                                <a href="../prodotti/luna-ring-emerald.html"><img  class="scale" src="../immagini/stone1.jpg" alt=""></a>
+                if ($cod_prodotto == 2) {
+                    echo <<<EOD
+                        <h2 class="stone-title">stone type</h2>
+                        <div class="selector-container">
+                            <ul class="stone-img">
+                                <a href="../prodotti/luna-ring-emerald.html"><img class="scale" src="../immagini/stone1.jpg" alt=""></a>
                                 <a href="../prodotti/luna-ring-tourmaline.html"><img src="../immagini/stone2.jpg" alt=""></a>
                                 <a href=""><img src="../immagini/stone3.jpg" alt=""></a>
-                                </ul>
-                            
-                        EOD;
-                }
-                elseif($cod_prodotto==3){
-                echo <<<EOD
-                            <h2 class="stone-title">stone type</h2>
-                            <div class="selector-container">
-                                <ul class="stone-img">
-                                <a href="../prodotti/luna-ring-emerald.html"><img  src="../immagini/stone1.jpg" alt=""></a>
+                            </ul>
+                        </div>
+                    EOD;
+                } elseif ($cod_prodotto == 3) {
+                    echo <<<EOD
+                        <h2 class="stone-title">stone type</h2>
+                        <div class="selector-container">
+                            <ul class="stone-img">
+                                <a href="../prodotti/luna-ring-emerald.html"><img src="../immagini/stone1.jpg" alt=""></a>
                                 <a href="../prodotti/luna-ring-tourmaline.html"><img class="scale" src="../immagini/stone2.jpg" alt=""></a>
                                 <a href=""><img src="../immagini/stone3.jpg" alt=""></a>
-                                </ul>
-                            
-                        EOD;
-
-                }
-                elseif($cod_prodotto==4){
+                            </ul>
+                        </div>
+                    EOD;
+                } elseif ($cod_prodotto == 4) {
                     echo <<<EOD
-                                <h2 class="stone-title">stone type</h2>
-                                <div class="selector-container">
-                                    <ul class="stone-img">
-                                    <a href="../prodotti/luna-ring-emerald.html"><img  src="../immagini/stone1.jpg" alt=""></a>
-                                    <a href="../prodotti/luna-ring-tourmaline.html"><img  src="../immagini/stone2.jpg" alt=""></a>
-                                    <a href=""><img class="scale" src="../immagini/stone3.jpg" alt=""></a>
-                                    </ul>
-                                
-                            EOD;
-    
+                        <h2 class="stone-title">stone type</h2>
+                        <div class="selector-container">
+                            <ul class="stone-img">
+                                <a href="../prodotti/luna-ring-emerald.html"><img src="../immagini/stone1.jpg" alt=""></a>
+                                <a href="../prodotti/luna-ring-tourmaline.html"><img src="../immagini/stone2.jpg" alt=""></a>
+                                <a href=""><img class="scale" src="../immagini/stone3.jpg" alt=""></a>
+                            </ul>
+                        </div>
+                    EOD;
                 }
+
                     echo <<<EOD
                                         <h2>ring size</h2>
                                         <div class="selector-container">
