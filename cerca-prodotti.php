@@ -34,6 +34,7 @@
 </head>
 <body>
     
+    
 	<div class="contenuto">
 		<h1 style="text-align: center; margin-top: 0px">Ricerca gioielli</h1>
 		<p>Cerca il gioiello che desideri</p>
@@ -65,7 +66,7 @@
                     if ($ris->num_rows > 0) {
                         echo "<p>Gioielli trovati: </p>";
                     
-                        foreach($ris as $riga){ 
+                        foreach($ris as $riga){
                             $cod_prodotto = $riga["cod_prodotto"];
                             $nome = $riga["nome"];
                             // $copertina = $riga["copertina"];
@@ -76,12 +77,25 @@
                                         <div class="card-libro__img">
                                             <img src="../immagini/$foto1" alt="$foto1">
                                         </div>
-                                        <div class="card-libro__testo">
-                                            <div class="card-libro__testo__centrato">
-                                                <p>Titolo: $nome</p>
-                                                
-                                                
-                            EOD; 
+                                    
+                                        EOD;
+    
+                           }else{
+                                echo <<<EOD
+                                        <div class="box">
+                                            <div class="image">
+                                                <img src="../immagini/$foto1" alt="">
+                                                <div class="icons">
+                                                    <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <h3>$nome</h3>
+                                                <div class="price">$$prezzo </div>
+                                            </div>
+                                        </div>
+                                    
+                                        EOD;
                            
                             echo <<<EOD
                                             </div>
@@ -95,7 +109,7 @@
                     }
                     echo "</table>";
                 }
-            
+            }
 
 
             ?>
@@ -105,7 +119,3 @@
 	
 </body>
 </html>
-<?php
-	$conn->close();
-?>
-
