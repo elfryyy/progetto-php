@@ -49,3 +49,71 @@
 		</form>
 
 		<p></p>
+
+        <form method="post" action="">
+            <?php
+                if (isset($_POST["nome_prodotto"]) ) {
+                    $nome = $_POST["nome_prodotto"];
+                    
+                    $sql = "SELECT prodotti.cod_prodotto prodotti.nome, prodotti.prezzo, prodotti.categoria, prodotti.descrizione, prodotti.specifiche, prodotti.foto1, prodotti.foto2, prodotti.foto3, prodotti.foto4, prodotti.foto5, prodotti.sconto, prodotti.nuovo
+                            -- FROM libri JOIN autori ON libri.cod_autore = autori.cod_autore  
+                            WHERE nome LIKE '%$nome%'
+                               ";
+                    //echo $_POST["titolo_da_cercare"];
+                    $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
+                    if ($ris->num_rows > 0) {
+                        echo "<p>Scegli tra le soluzioni trovate i libri da ritirare.</p>";
+                    
+                        foreach($ris as $riga){
+                            $cod_prodotto = $riga["cod_prodotto"];
+                            $nome = $riga["nome"];
+                            $copertina = $riga["copertina"];
+                            
+                            echo <<<EOD
+                                <div class="elenco_libri">
+                                    <div class="card-libro">
+                                        <div class="card-libro__img">
+                                            <img src="../immagini/$copertina" alt="$copertina">
+                                        </div>
+                                        <div class="card-libro__testo">
+                                            <div class="card-libro__testo__centrato">
+                                                <p>Titolo: $nome</p>
+                                                
+                                                <p class="link-scheda"><a href="scheda-libro.php?cod_libro=$cod_prodotto">Scheda del libro</a></p>
+                            EOD; 
+                            if ($riga["username_utente"]){
+                                echo "          <p>Disponibile: No</p>";
+                            }
+                            else {
+                                echo "          <p>Disponibile: Sì</p>";
+                                echo "          <p><input type='checkbox' name='cod_prodotto[]' value='$cod_prodotto'/> Spunta per prendere il libro</p>";
+                            }
+                            echo <<<EOD
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            EOD;
+                        }
+                        echo "<p style='text-align: center; padding-top: 10px'><input type='submit' value='Conferma'/></p>";
+                    }
+                    else {
+                        echo "<p>Non ho trovato nessun libro che rispetti i valori indicati</p>";
+                    }
+                    echo "</table>";
+                }
+
+
+            ?>
+		</form>	
+
+	</div>	
+	<?php 
+		include('pagine/footer.php')
+	?>
+</body>
+</html>
+<?php
+	$conn->close();
+?>
+
