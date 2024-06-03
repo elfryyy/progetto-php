@@ -77,6 +77,15 @@ input[type="checkbox"]{
     z-index: 21;
 }
 
+.bag{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+
+    z-index: 21;
+}
+
 .bar .middle{
     height: 3px;
     width: 40px;
