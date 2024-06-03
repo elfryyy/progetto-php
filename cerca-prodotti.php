@@ -40,7 +40,7 @@
 		<form method="post" action="">
 			<table id="tab_dati_personali">
 				<tr>
-                    <td><input class="input_ricerca" type="text" name="nome_prodotto" placeholder="Cerca gioiello" id="nome_prodotto" value="<?php echo isset($_POST['nome_prodotto']) ? $_POST['nome_prodotto'] : ''; ?>"></td>
+                    <td><input class="input_ricerca" type="text" name="prodotti.nome" placeholder="Cerca gioiello" id="prodotti.nome" value="<?php echo isset($_POST['prodotti.nome']) ? $_POST['prodotti.nome'] : ''; ?>"></td>
 				</tr>
 				
 				<tr>
@@ -53,11 +53,11 @@
 
         <form method="post" action="">
             <?php
-                if (isset($_POST["nome_prodotto"]) ) {
-                    $nome = $_POST["nome_prodotto"];
+                if (isset($_POST["prodotti.nome"]) ) {
+                    $nome = $_POST["prodotti.nome"];
                     
                     $sql = "SELECT prodotti.cod_prodotto prodotti.nome, prodotti.prezzo, prodotti.categoria, prodotti.descrizione, prodotti.specifiche, prodotti.foto1, prodotti.foto2, prodotti.foto3, prodotti.foto4, prodotti.foto5, prodotti.sconto, prodotti.nuovo
-                            -- FROM libri JOIN autori ON libri.cod_autore = autori.cod_autore  
+                            FROM prodotti 
                             WHERE nome LIKE '%$nome%'
                                ";
                     //echo $_POST["titolo_da_cercare"];
