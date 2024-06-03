@@ -9,7 +9,7 @@
 	$username = $_SESSION["username"];
 	//echo $username;
 
-	require('../data/connessione_db.php');
+	require('data/connessione_db.php');
 
 	if(isset($_POST['cod_prodotto'])){
         foreach($_POST['cod_prodotto'] as $cod_prodotto) {
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="cerca.css">
 </head>
 <body>
-    <?php require("pagine/header.php");?>
+    
 	<div class="contenuto">
 		<h1 style="text-align: center; margin-top: 0px">Ricerca gioielli</h1>
 		<p>Cerca il gioiello che desideri</p>
@@ -90,9 +90,9 @@
                                 </div>
                             EOD;
                     }
-                    else {
-                        echo "<p>Nessun gioiello trovato</p>";
-                    }
+                    // else {
+                    //     echo "<p>Nessun gioiello trovato</p>";
+                    // }
                     echo "</table>";
                 }
             }
@@ -102,9 +102,7 @@
 		</form>	
 
 	</div>	
-	<?php 
-		include('pagine/footer.php')
-	?>
+	
 </body>
 </html>
 <?php
