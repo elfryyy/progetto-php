@@ -72,7 +72,7 @@
                     $_SESSION["username"] = $username;
 
                     $conn->close();
-					header("location: ../home.php");
+					header("location: ../home-utente.php");
                     
                 }
             }

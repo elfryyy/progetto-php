@@ -93,6 +93,14 @@ input[type="checkbox"]{
     position:absolute;
 }
 
+.img_bag_utente{
+    right:25px;
+    height:40px;
+    width:40px;
+    top:37px;
+    position:absolute;
+}
+
 .img_search{
     height:40px;
     width:40px;
@@ -105,8 +113,14 @@ input[type="checkbox"]{
     height:40px;
     width:40px;
     top:37px;
-    right:150px;
+    right:170px;
     position:absolute;
+}
+
+.saluto_utente{
+    position:absolute;
+    right:105px;
+    top:27px;
 }
 
 .bar .middle{
