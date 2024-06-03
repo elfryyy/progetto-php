@@ -49,9 +49,22 @@
                 <p style="padding-left:30px; padding-right:30px">  1  </p>
                 <p> + </p>
             </div>
-
          </div>
+    </div>
 
+    <div class="prodotto">
+         <img class="prod_img" src="../immagini/e-baroque1.jpg" alt="">
+         <div class="testo">
+            <p style="float:right; font-size:20px;"><input type='checkbox' name='cancella'/>x</p>
+            <h1>nome</h1>
+            <p >specifiche</p>
+
+            <div class="aggiungi">
+                <p><input type='checkbox' name='rimuovi'/> - </p>
+                <p style="padding-left:30px; padding-right:30px">  1  </p>
+                <p><input type='checkbox' name='aggiungi'/> + </p>
+            </div>
+         </div>
     </div>
 
 

@@ -1,12 +1,12 @@
 <?php
-	session_start();
-	//echo session_id();
+	// session_start();
+	// //echo session_id();
     
-	if(!isset($_SESSION['username'])){
-		header('location: ../login.php');
-	} 
+	// if(!isset($_SESSION['username'])){
+	// 	header('location: ../pagine/login.php');
+	// } 
 	
-	$username = $_SESSION["username"];
+	// $username = $_SESSION["username"];
 	//echo $username;
 
 	require('data/connessione_db.php');
@@ -65,7 +65,7 @@
                     if ($ris->num_rows > 0) {
                         echo "<p>Gioielli trovati: </p>";
                     
-                        foreach($ris as $riga){
+                        foreach($ris as $riga){ 
                             $cod_prodotto = $riga["cod_prodotto"];
                             $nome = $riga["nome"];
                             // $copertina = $riga["copertina"];
@@ -89,13 +89,13 @@
                                     </div>
                                 </div>
                             EOD;
+                     }   
+                    }else {
+                        echo "<p>Nessun gioiello trovato</p>";
                     }
-                    // else {
-                    //     echo "<p>Nessun gioiello trovato</p>";
-                    // }
                     echo "</table>";
                 }
-            }
+            
 
 
             ?>

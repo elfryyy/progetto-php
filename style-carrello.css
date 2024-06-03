@@ -3,6 +3,7 @@
 .prodotto{
     padding-left:200px;
     padding-top:50px;
+    padding-bottom:50px ;
     flex-wrap: wrap;
     display: flex;
     background: #f9f8f3;
