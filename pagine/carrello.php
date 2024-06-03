@@ -16,6 +16,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="../style-gioiello.css">
+    <link rel="stylesheet" href="../style-carrello.css">
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,11 +33,31 @@
 </head>
 
 <body class="italiana-regular">
+    <?php 
+        require('header-utente.php');
+    ?>
 
+    <div class="prodotto">
+         <img class="prod_img" src="../immagini/e-baroque1.jpg" alt="">
+         <div class="testo">
+            <p style="float:right; font-size:20px;">x</p>
+            <h1>nome</h1>
+            <p >specifiche</p>
+
+            <div class="aggiungi">
+                <p> - </p>
+                <p style="padding-left:30px; padding-right:30px">  1  </p>
+                <p> + </p>
+            </div>
+
+         </div>
+
+    </div>
 
 
     <?php 
         require('footer.php');
+        require('../java/menu.php');
     ?>
 </body>
 </html>
