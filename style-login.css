@@ -1,21 +1,25 @@
 @import url("style-home.css");
 
+.body{
+    background: #f9f8f3;
+}
 .contenuto {
-	width: 550px;
+	width: 100%;
 	margin: auto;
-	padding: 15px;
 	text-align: center;
-	padding-bottom: 40px;
+    background: #f9f8f3;
+    height: 98vh;
+    margin:0;
 }
 
-.tab_input{
-	text-align: left;
-	margin: auto;
+.form{
+    margin-right:45px;
+    margin-top:50px;
 }
 
 
 .input-box .input-field{
-    width: 100%;
+    width: 35%;
     height: 60px;
     font-size: 17px;
     padding: 0 25px;
@@ -25,11 +29,12 @@
     box-shadow: 0px 5px 10px 1px rgba(0,0,0, 0.5);
     outline: none;
     transition: .3s;
+    left:30%;
 }
 
 
 .input-field:focus{  /* allunga riga quando schiaccio */
-    width: 105%;
+    width: 40%;
 }
 
 .forgot{
@@ -57,12 +62,13 @@ a:hover{
 }
 
 .submit-button{
-    width: 100%;
+    width: 35%;
     height: 60px;
     background: #222;
     border-radius: 30px;
     cursor: pointer;
     transition: .3s;
+    font-size:40px;
 }
 
 .submit-button{
