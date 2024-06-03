@@ -71,10 +71,48 @@
                             $prezzo = number_format($riga['prezzo'], 2);
                             $nome = $riga['nome'];
                             $foto1 = $riga["foto1"];
-                            $sconto=$riga["sconto"];
-                            $prezzo_s=number_format(($prezzo/100)*(100-$sconto), 2);
-                            
-                            echo <<<EOD
+                            $nuovo = $riga['nuovo'];
+                            $sconto= $riga["sconto"];
+    
+                           if($sconto){
+                                $prezzo_s=number_format(($prezzo/100)*(100-$sconto), 2);
+    
+                                    echo <<<EOD
+                                            <div class="box">
+                                            <span class="discount">-$sconto%</span>
+                                                <div class="image">
+                                                    <img src="../immagini/$foto1" alt="">
+                                                    <div class="icons">
+                                                        <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h3>$nome</h3>
+                                                    <div class="price">$$prezzo_s <span>$$prezzo</span> </div>
+                                                </div>
+                                            </div>
+                                        
+                                            EOD;
+                           }elseif($nuovo){
+                                echo <<<EOD
+                                        <div class="box">
+                                        <span class="discountnew">NEW</span>
+                                            <div class="image">
+                                                <img src="../immagini/$foto1" alt="">
+                                                <div class="icons">
+                                                    <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <h3>$nome</h3>
+                                                <div class="price">$$prezzo </div>
+                                            </div>
+                                        </div>
+                                    
+                                        EOD;
+    
+                           }else{
+                                echo <<<EOD
                                         <div class="box">
                                             <div class="image">
                                                 <img src="../immagini/$foto1" alt="">
@@ -87,7 +125,8 @@
                                                 <div class="price">$$prezzo </div>
                                             </div>
                                         </div>
-                                      EOD;
+                                    
+                                        EOD;
                            
                             echo <<<EOD
                                             </div>
@@ -102,7 +141,7 @@
                     echo "</table>";
                 }
             }
-
+        }
 
             ?>
 		</form>	
@@ -111,7 +150,3 @@
 	
 </body>
 </html>
-<?php
-	$conn->close();
-?>
-
