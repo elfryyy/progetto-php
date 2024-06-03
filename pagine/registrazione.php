@@ -17,13 +17,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="style-registrazione.css">
+    <link rel="stylesheet" href="../style-registrazione.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Elsie+Swash+Caps:wght@400;900&family=Italiana&display=swap" rel="stylesheet">
     <title>K-Sign up</title>
 </head>
 <body>
 
     <!-- span suddivide senza creare divisioni come il div -->
-    <div class="container">
+    <div class="container italiana-regular" >
         <div class="title">Sing up</div>
         <form action="" method="post">
             <div class="user-details">

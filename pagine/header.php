@@ -12,7 +12,7 @@
 
     <div class="menu med-text">
       <ul>
-        <li><a href="../home.html">home</a></li>
+        <li><a href="../home.php">home</a></li>
         <li>
           <div class="details-h">
             <div class="details__title-h">
@@ -32,13 +32,30 @@
     </div>
 
     <div class="logo">
-        <img style="position:fixed;" class="immagine" src="../immagini/logo.jpg" alt="">
+        <img  class="immagine" src="../immagini/logo.jpg" alt="">
     </div>
 
     <label>
         <input type="checkbox">
-            <div class="bag">
-                   <img style="heigh:40px; width:40px; background-color: transparent; "src="../immagini/bag2.png" alt="">
+            <div class="icona">
+                   <img class="img_search"src="../immagini/search.png" alt="">
+            </div>
+    </label>
+    <label>
+        <input type="checkbox">
+            <div class="icona">
+                   <a href="pagine/login.php">
+                   <img class="img_bag"src="../immagini/bag2.png" alt="">
+                   </a>
+            </div>
+    </label>
+
+    <label>
+        <input type="checkbox">
+            <div class="icona">
+              <a href="login.php">
+                  <img class="img_personal"src="../immagini/personal-area.png" alt="">
+              </a>
             </div>
     </label>
 

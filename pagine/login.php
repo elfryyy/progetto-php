@@ -1,4 +1,3 @@
-
 <?php
     if (isset($_POST["username"])) $username = $_POST["username"]; else $username = "";
     if (isset($_POST["password"])) $password = $_POST["password"]; else $password = "";
@@ -11,39 +10,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style-login.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style-login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Elsie+Swash+Caps:wght@400;900&family=Italiana&display=swap" rel="stylesheet">
+
     <title>K-Sign in</title>
 </head>
-<body>
+<body class="italiana-regular">
     
     <div class="contenuto">
-        <h1>K</h1>
-		<h2>Login</h2>
+    <?php
+        require("header.php")
+    ?>
+		<h2 style="margin-right:47px;">Login</h2>
 
        
-        <form action="" method="post">  
+        <form class="form" action="" method="post">  
             <div class="input-box">
-                <input type="text" class="input-field" id="username" placeholder="Username" required> 
+                <td><input class="input-field" placeholder="username" type="text" name="username" id="username" value = "<?php echo $username ?>" required></td>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" id="password" placeholder="Password" required> 
+                <td><input class="input-field" placeholder="password" type="password" name="password" id="password" required></td>
             </div>
             <div class="forgot">
                 <section>
                     <input type="checkbox" id="check">
-                    <label for="check">Remember me</label>
+                    <label for="check"></label>
                 </section>
                 <section>
-                    <a href="#">Forgot password</a>
+                    <a href="#"></a>
                 </section>
             </div>
             <div class="input-submit">
-                <input class="submit-button" type="submit" value="Sign in">
+                <input style="font-size:25px;"class="submit-button italiana-regular" type="submit" value="sign in">
             </div>
 
             <div class="sign-up-link">
-                <p>Don't have account? <a href="pagine/registrazione.php">Sign up</a></p>
+                <p>Don't have account? <a href="registrazione.php">Sign up</a></p>
             </div>
         </form>
 
@@ -51,7 +57,7 @@
 
         <?php
             if (isset($_POST["username"]) and isset($_POST["password"])) { 
-                require("data/connessione_db.php"); 
+                require("../data/connessione_db.php"); 
 
                 $myquery = "SELECT username, password 
                             FROM utenti
@@ -68,13 +74,19 @@
                     $_SESSION["username"] = $username;
 
                     $conn->close();
-					header("location: pagine/home.php");
+					header("location: ../home.php");
+                    
                 }
             }
+
         ?>
     </div>
    
+    <?php 
+        require("../java/menu.php");
+    ?>
 </body>
+
 </html>
 
 
