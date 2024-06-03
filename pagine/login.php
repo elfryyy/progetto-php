@@ -29,6 +29,7 @@
 
        
         <form class="form" action="" method="post">  
+            
             <div class="input-box">
                 <td><input class="input-field" placeholder="username" type="text" name="username" id="username" value = "<?php echo $username ?>" required></td>
             </div>
@@ -40,16 +41,13 @@
                     <input type="checkbox" id="check">
                     <label for="check"></label>
                 </section>
-                <section>
-                    <a href="#"></a>
-                </section>
             </div>
             <div class="input-submit">
                 <input style="font-size:25px;"class="submit-button italiana-regular" type="submit" value="sign in">
             </div>
 
             <div class="sign-up-link">
-                <p>Don't have account? <a href="registrazione.php">Sign up</a></p>
+                <p>Don't have account? <a href="registrazione.php"> Sign up</a></p>
             </div>
         </form>
 
@@ -74,7 +72,7 @@
                     $_SESSION["username"] = $username;
 
                     $conn->close();
-					header("location: ../home.php");
+					header("location: ../home-utente.php");
                     
                 }
             }

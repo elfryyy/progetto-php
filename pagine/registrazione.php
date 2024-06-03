@@ -1,14 +1,43 @@
 <?php
-    if (isset($_POST["username"])) {$username = $_POST["username"];} else {$username = "";}
-	if (isset($_POST["password"])) {$password = $_POST["password"];} else {$password = "";}
-    if(isset($_POST["conferma"])) $conferma = $_POST["conferma"];  else $conferma = "";
-    if(isset($_POST["nome"])) $nome = $_POST["nome"];  else $nome = "";
-    if(isset($_POST["cognome"])) $cognome = $_POST["cognome"];  else $cognome = "";
-    if(isset($_POST["email"])) $email = $_POST["email"];  else $email = "";
-    if(isset($_POST["telefono"])) $telefono = $_POST["telefono"];  else $telefono = "";
-    if(isset($_POST["comune"])) $comune = $_POST["comune"];  else $comune = "";
-    if(isset($_POST["indirizzo"])) $indirizzo = $_POST["indirizzo"];  else $indirizzo = "";
+session_start();
 
+$username = isset($_POST["username"]) ? $_POST["username"] : "";
+$password = isset($_POST["password"]) ? $_POST["password"] : "";
+$conferma = isset($_POST["confirm"]) ? $_POST["confirm"] : "";
+$nome = isset($_POST["name"]) ? $_POST["name"] : "";
+$cognome = isset($_POST["surname"]) ? $_POST["surname"] : "";
+
+$error_message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($username) || empty($password) || empty($conferma) || empty($nome) || empty($cognome)) {
+        $error_message = "Tutti i campi sono obbligatori!";
+    } elseif ($password != $conferma) {
+        $error_message = "Le password inserite non corrispondono.";
+    } else {
+        require("../data/connessione_db.php");
+
+        $myquery = "SELECT username FROM utenti WHERE username='$username'";
+        $ris = $conn->query($myquery);
+
+        if ($ris->num_rows > 0) {
+            $error_message = "Questo username è già stato usato.";
+        } else {
+            $myquery = "INSERT INTO utenti (username, password, nome, cognome)
+                        VALUES ('$username', '$password', '$nome', '$cognome')";
+
+            if ($conn->query($myquery) === true) {
+                $_SESSION["username"] = $username;
+                $conn->close();
+                header('Refresh: 5; URL=../home-utente.php');
+                echo "Registrazione effettuata con successo!<br>Sarai ridirezionato alla home tra 5 secondi.";
+                exit();
+            } else {
+                $error_message = "Non è stato possibile effettuare la registrazione per il seguente motivo: " . $conn->error;
+            }
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,110 +46,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../style-registrazione.css">
+    <link rel="stylesheet" href="../style-registrazione2.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Elsie+Swash+Caps:wght@400;900&family=Italiana&display=swap" rel="stylesheet">
-    <title>K-Sign up</title>
-</head>
-<body>
 
-    <!-- span suddivide senza creare divisioni come il div -->
-    <div class="container italiana-regular" >
-        <div class="title">Sing up</div>
-        <form action="" method="post">
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Username</span>
-                    <input type="text" name="username" id="username" placeholder="Enter your username" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Password</span>
-                    <input type="password" name="password" id="password" placeholder="Enter your password" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Confirm password</span>
-                    <input type="password" name="password" id="password" placeholder="Confirm your password" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Name</span>
-                    <input type="text" name="nome" id="nome" placeholder="Enter your name" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Surname</span>
-                    <input type="text" name="cognome" id="cognome" placeholder="Enter your surname" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="text" name="email" id="email" placeholder="Enter your email" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Phone number</span>
-                    <input type="text" name="telefono" id="telefono" placeholder="Enter your number" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Address</span>
-                    <input type="text" name="indirizzo" id="indirizzo" placeholder="Enter your address" required>
-                </div>
-                
+    <title>K-registration</title>
+</head>
+<body class="italiana-regular">
+    
+    <div class="contenuto">
+    <?php
+        require("header.php")
+    ?>
+		<h2 style="margin-right:47px;">Registration</h2>
+
+        <form class="form" action="" method="post">  
+            <div class="input-box">
+                <input class="input-field" placeholder="name" type="text" name="name" id="name" value="<?php echo htmlspecialchars($nome); ?>" required>
             </div>
-          
-            <div class="button">
-                <input class="register" type="submit" value="Register">
+            <div class="input-box">
+                <input class="input-field" placeholder="surname" type="text" name="surname" id="surname" value="<?php echo htmlspecialchars($cognome); ?>" required>
+            </div>
+            <div class="input-box">
+                <input class="input-field" placeholder="username" type="text" name="username" id="username" value="<?php echo htmlspecialchars($username); ?>" required>
+            </div>
+            <div class="input-box">
+                <input class="input-field" placeholder="password" type="password" name="password" id="password" required>
+            </div>
+            <div class="input-box">
+                <input class="input-field" placeholder="confirm password" type="password" name="confirm" id="confirm" required>
+            </div>
+            <div class="forgot">
+                <section>
+                    <input type="checkbox" id="check">
+                    <label for="check"></label>
+                </section>
+            </div>
+            <div class="input-submit">
+                <input style="font-size:25px;" class="submit-button italiana-regular" type="submit" value="register">
+            </div>
+
+            <div class="log-in-link">
+                <p>Have account? <a href="login.php"> Sign up</a></p>
             </div>
         </form>
+
+        <?php
+        if (!empty($error_message)) {
+            echo "<p>$error_message</p>";
+        }
+        ?>
     </div>
-
-        <p>
-            <?php
-            if(isset($_POST["username"]) and isset($_POST["password"])) {
-                if ($_POST["username"] == "" or $_POST["password"] == "") {
-                    echo "username e password non possono essere vuoti!";
-                } elseif ($_POST["password"] != $_POST["conferma"]){
-                    echo "<p>Le password inserite non corrispondono</p>";
-                } else {
-                    require("../data/connessione_db.php");
-
-                    $myquery = "SELECT username 
-						    FROM utenti 
-						    WHERE username='$username'";
-                    //echo $myquery;
-
-                    $ris = $conn->query($myquery) or die("<p>Query fallita!</p>");
-                    if ($ris->num_rows > 0) {
-                        echo "Questo username è già stato usato";
-                    } else {
-
-                        $myquery = "INSERT INTO utenti (username, password, nome, cognome, email, telefono, comune, indirizzo)
-                                    VALUES ('$username', '$password', '$nome', '$cognome','$email','$telefono','$comune','$indirizzo')";
-
-                        /*
-                        // Versione con l'uso dell'hash
-                        $password_hash = password_hash($password, PASSWORD_DEFAULT);
-
-                        $myquery = "INSERT INTO utenti (username, password, nome, cognome, email, telefono, comune, indirizzo)
-                                    VALUES ('$username', '$password_hash', '$nome', '$cognome','$email','$telefono','$comune','$indirizzo')";
-                        */
-
-                        if ($conn->query($myquery) === true) {
-                            session_start();
-                            $_SESSION["username"]=$username;
-                            
-						    $conn->close();
-
-                            echo "Registrazione effettuata con successo!<br>sarai ridirezionato alla home tra 5 secondi.";
-                            header('Refresh: 5; URL=home.php');
-
-                        } else {
-                            echo "Non è stato possibile effettuare la registrazione per il seguente motivo: " . $conn->error;
-                        }
-                    }
-                }
-            }
-            ?>
-        </p>
-        
-    </div>
+   
+    <?php 
+        require("../java/menu.php");
+    ?>
 </body>
 </html>
 
