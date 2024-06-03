@@ -9,7 +9,7 @@
 	$username = $_SESSION["username"];
 	//echo $username;
 
-	require('../data/connessione_db.php');
+	require('data/connessione_db.php');
 
 	if(isset($_POST['cod_prodotto'])){
         foreach($_POST['cod_prodotto'] as $cod_prodotto) {
@@ -33,14 +33,14 @@
     <link rel="stylesheet" href="cerca.css">
 </head>
 <body>
-    <?php require("pagine/header.php");?>
+    
 	<div class="contenuto">
 		<h1 style="text-align: center; margin-top: 0px">Ricerca gioielli</h1>
 		<p>Cerca il gioiello che desideri</p>
 		<form method="post" action="">
 			<table id="tab_dati_personali">
 				<tr>
-                    <td><input class="input_ricerca" type="text" name="nome_prodotto" placeholder="Cerca gioiello" id="nome_prodotto" value="<?php echo isset($_POST['nome_prodotto']) ? $_POST['nome_prodotto'] : ''; ?>"></td>
+                    <td><input class="input_ricerca" type="text" name="prodotti.nome" placeholder="Cerca gioiello" id="prodotti.nome" value="<?php echo isset($_POST['prodotti.nome']) ? $_POST['prodotti.nome'] : ''; ?>"></td>
 				</tr>
 				
 				<tr>
@@ -53,11 +53,11 @@
 
         <form method="post" action="">
             <?php
-                if (isset($_POST["nome_prodotto"]) ) {
-                    $nome = $_POST["nome_prodotto"];
+                if (isset($_POST["prodotti.nome"]) ) {
+                    $nome = $_POST["prodotti.nome"];
                     
                     $sql = "SELECT prodotti.cod_prodotto prodotti.nome, prodotti.prezzo, prodotti.categoria, prodotti.descrizione, prodotti.specifiche, prodotti.foto1, prodotti.foto2, prodotti.foto3, prodotti.foto4, prodotti.foto5, prodotti.sconto, prodotti.nuovo
-                            -- FROM libri JOIN autori ON libri.cod_autore = autori.cod_autore  
+                            FROM prodotti 
                             WHERE nome LIKE '%$nome%'
                                ";
                     //echo $_POST["titolo_da_cercare"];
@@ -90,9 +90,9 @@
                                 </div>
                             EOD;
                     }
-                    else {
-                        echo "<p>Nessun gioiello trovato</p>";
-                    }
+                    // else {
+                    //     echo "<p>Nessun gioiello trovato</p>";
+                    // }
                     echo "</table>";
                 }
             }
@@ -102,9 +102,7 @@
 		</form>	
 
 	</div>	
-	<?php 
-		include('pagine/footer.php')
-	?>
+	
 </body>
 </html>
 <?php
