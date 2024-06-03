@@ -20,7 +20,7 @@
 /* HEADER */
 
 .header{
-    width:auto;
+    width:100%;
     display: flex;
     flex-wrap: wrap;
     padding:0px;
@@ -85,6 +85,8 @@ input[type="checkbox"]{
     transition: 0.3s ease; 
 }
 
+
+
 .bar .top{
     bottom:7px;
     height: 3px;
@@ -128,7 +130,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
 
 .menu{
    display:none;
-   transition: all 1s cubic-bezier(.215, .61, .355, 1);
+   transition: all 3s cubic-bezier(.215, .61, .355, 1);
   }
 
 .menu--open{
@@ -138,6 +140,8 @@ input[type="checkbox"]:checked ~ .bar .middle{
     display:ruby;
     z-index: 10;  
 }
+
+
 .menu ul {
    padding:200px;
 }
@@ -200,7 +204,7 @@ input[type="checkbox"]:checked ~ .bar .middle{
 
 /* LOGO */
 .logo{
-    margin: 0 auto;
+    margin:0 auto;
 }
 
 .immagine{

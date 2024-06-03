@@ -32,6 +32,20 @@
     </div>
 
     <div class="logo">
-        <img class="immagine" src="../immagini/logo.jpg" alt="">
+        <img style="position:fixed;" class="immagine" src="../immagini/logo.jpg" alt="">
     </div>
-  </div>
+
+    <label>
+        <input type="checkbox">
+            <div class="bag">
+                   <img style="heigh:40px; width:40px; background-color: transparent; "src="../immagini/bag2.png" alt="">
+            </div>
+    </label>
+
+
+</div>
+
+  
+
+
+

@@ -17,6 +17,8 @@
         });
 
 
+
+
       var nav = $(".selector-container");
       var pose = 0;
       var wid = "";
@@ -46,7 +48,7 @@
   });
 
 
-
+  
   ScrollReveal().reveal('.reveal',{ distance: '100px', duration: 1500, easing:'cubic-bezier(.215, .61, .355, 1)', interval: 200 } );
   ScrollReveal().reveal('.zoom',{ duration: 800, easing:'cubic-bezier(.215, .61, .355, 1)', interval: 200, scale:0.85, mobile:false} );
 </script>

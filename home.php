@@ -59,6 +59,26 @@
         <img class="immagine" src="immagini/logo.jpg" alt="">
     </div>
 
+    <label>
+        <input type="checkbox">
+            <div class="bag">
+                   <img style="heigh:40px; width:40px; background-color: transparent; top:35px; right:100x; position:relative;"src="immagini/search.png" alt="">
+            </div>
+    </label>
+    <label>
+        <input type="checkbox">
+            <div class="bag">
+                   <img style="heigh:40px; width:40px; background-color: transparent; top:35px; right:40px; position:relative;"src="immagini/bag2.png" alt="">
+            </div>
+    </label>
+
+    <label>
+        <input type="checkbox">
+            <div class="bag">
+                   <img style="heigh:40px; width:40px; background-color: transparent; top:35px; right:100x; position:relative;"src="immagini/personal-area/search.png" alt="">
+            </div>
+    </label>
+
   </div>
 
   <div class="hero zoom" >
