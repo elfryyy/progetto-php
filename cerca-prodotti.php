@@ -1,12 +1,12 @@
 <?php
-	// session_start();
-	// //echo session_id();
+	session_start();
+	//echo session_id();
     
-	// if(!isset($_SESSION['username'])){
-	// 	header('location: ../pagine/login.php');
-	// } 
+	if(!isset($_SESSION['username'])){
+		header('location: ../login.php');
+	} 
 	
-	// $username = $_SESSION["username"];
+	$username = $_SESSION["username"];
 	//echo $username;
 
 	require('data/connessione_db.php');
@@ -67,15 +67,46 @@
                         echo "<p>Gioielli trovati: </p>";
                     
                         foreach($ris as $riga){
-                            $cod_prodotto = $riga["cod_prodotto"];
-                            $nome = $riga["nome"];
-                            // $copertina = $riga["copertina"];
-                            
-                            echo <<<EOD
-                                <div class="elenco_libri">
-                                    <div class="card-libro">
-                                        <div class="card-libro__img">
-                                            <img src="../immagini/$foto1" alt="$foto1">
+                            $cod_prodotto=$riga['cod_prodotto'];
+                            $prezzo = number_format($riga['prezzo'], 2);
+                            $nome = $riga['nome'];
+                            $foto1 = $riga["foto1"];
+                            $nuovo = $riga['nuovo'];
+                            $sconto= $riga["sconto"];
+    
+                           if($sconto){
+                                $prezzo_s=number_format(($prezzo/100)*(100-$sconto), 2);
+    
+                                    echo <<<EOD
+                                            <div class="box">
+                                            <span class="discount">-$sconto%</span>
+                                                <div class="image">
+                                                    <img src="../immagini/$foto1" alt="">
+                                                    <div class="icons">
+                                                        <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h3>$nome</h3>
+                                                    <div class="price">$$prezzo_s <span>$$prezzo</span> </div>
+                                                </div>
+                                            </div>
+                                        
+                                            EOD;
+                           }elseif($nuovo){
+                                echo <<<EOD
+                                        <div class="box">
+                                        <span class="discountnew">NEW</span>
+                                            <div class="image">
+                                                <img src="../immagini/$foto1" alt="">
+                                                <div class="icons">
+                                                    <a style="width:100%" href="prodotto.php?cod_prodotto=$cod_prodotto">Show more</a>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <h3>$nome</h3>
+                                                <div class="price">$$prezzo </div>
+                                            </div>
                                         </div>
                                     
                                         EOD;
@@ -103,14 +134,14 @@
                                     </div>
                                 </div>
                             EOD;
-                     }   
-                    }else {
-                        echo "<p>Nessun gioiello trovato</p>";
                     }
+                    // else {
+                    //     echo "<p>Nessun gioiello trovato</p>";
+                    // }
                     echo "</table>";
                 }
             }
-
+        }
 
             ?>
 		</form>	
