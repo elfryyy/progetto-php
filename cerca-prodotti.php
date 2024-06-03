@@ -32,7 +32,7 @@
 	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
-	
+    <?php require("pagine/header.php");?>
 	<div class="contenuto">
 		<h1 style="text-align: center; margin-top: 0px">Ricerca gioielli</h1>
 		<p>Cerca il gioiello che desideri</p>
@@ -62,46 +62,39 @@
                     //echo $_POST["titolo_da_cercare"];
                     $ris = $conn->query($sql) or die("<p>Query fallita!</p>");
                     if ($ris->num_rows > 0) {
-                        echo "<p>Scegli tra le soluzioni trovate i libri da ritirare.</p>";
+                        echo "<p>Gioielli trovati: </p>";
                     
                         foreach($ris as $riga){
                             $cod_prodotto = $riga["cod_prodotto"];
                             $nome = $riga["nome"];
-                            $copertina = $riga["copertina"];
+                            // $copertina = $riga["copertina"];
                             
                             echo <<<EOD
                                 <div class="elenco_libri">
                                     <div class="card-libro">
                                         <div class="card-libro__img">
-                                            <img src="../immagini/$copertina" alt="$copertina">
+                                            <img src="../immagini/$foto1" alt="$foto1">
                                         </div>
                                         <div class="card-libro__testo">
                                             <div class="card-libro__testo__centrato">
                                                 <p>Titolo: $nome</p>
                                                 
-                                                <p class="link-scheda"><a href="scheda-libro.php?cod_libro=$cod_prodotto">Scheda del libro</a></p>
+                                                
                             EOD; 
-                            if ($riga["username_utente"]){
-                                echo "          <p>Disponibile: No</p>";
-                            }
-                            else {
-                                echo "          <p>Disponibile: Sì</p>";
-                                echo "          <p><input type='checkbox' name='cod_prodotto[]' value='$cod_prodotto'/> Spunta per prendere il libro</p>";
-                            }
+                           
                             echo <<<EOD
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             EOD;
-                        }
-                        echo "<p style='text-align: center; padding-top: 10px'><input type='submit' value='Conferma'/></p>";
                     }
                     else {
-                        echo "<p>Non ho trovato nessun libro che rispetti i valori indicati</p>";
+                        echo "<p>Nessun gioiello trovato</p>";
                     }
                     echo "</table>";
                 }
+            }
 
 
             ?>
