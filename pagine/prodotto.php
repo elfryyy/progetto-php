@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['username'])){ 
+		header('location: ../home.html');
+	}
+    $username = $_SESSION["username"];
+
     if (!isset($_GET["cod_prodotto"])) {
         die("Errore! manca un parametro essenziale per il caricamento del prodotto!");
     } else {
@@ -26,6 +32,14 @@
             $foto4 = $riga["foto4"];
             $foto5 = $riga["foto5"];
         }
+    }
+
+    if (isset($_POST['prodotto'])) {
+
+        $sql = "INSERT INTO carrello (username, cod_prodotto)
+        VALUES ('$username', $cod_prodotto)";
+        $conn->query($sql) or die("<p>Query fallita!</p>");
+
     }
 ?>
 
@@ -190,7 +204,10 @@
                                         </ul>
                                         <div class="line-selector"></div>
                                     </div>
-                                        <a class="add-to-cart" href="">Add to cart</a>
+                                        <form action='' method='post'>
+                                            <p style="display:none;"><input type='text' name="prodotto"  value = '$cod_prodotto' /></p>
+                                            <p class="italiana-regular"><input class='submit' type='submit' value='ADD TO CART'</p>
+                                        </form>
                                 </div>
                         </div>
                         EOD;
@@ -207,7 +224,10 @@
                                         </ul>
                                         <div class="line-selector"></div>
                                    </div>
-                                        <a class="add-to-cart" href="">Add to cart</a>
+                                    <form action='' method='post'>
+                                            <p style="display:none;"><input type='text' name="prodotto"  value = '$cod_prodotto' /></p>
+                                            <p class="italiana-regular"><input class='submit' type='submit' value='ADD TO CART'</p>
+                                    </form>
                                </div>
                         </div>
                         EOD;
@@ -227,7 +247,10 @@
                                         </ul>
                                         <div class="line-selector"></div>
                                    </div>
-                                        <a class="add-to-cart" href="">Add to cart</a>
+                                    <form action='' method='post'>
+                                            <p style="display:none;"><input type='text' name="prodotto"  value = '$cod_prodotto' /></p>
+                                            <p class="italiana-regular"><input class='submit' type='submit' value='ADD TO CART'</p>
+                                    </form>
                                 </div>
                         </div>
                         EOD;
@@ -237,7 +260,11 @@
                 
                 echo <<<EOD
                                 <div class="bottone2-p reveal">
-                                <a class="add-to-cart" href="">Add to cart</a>
+                                <form action='' method='post'>
+                                    <p style="display:none;"><input type='text' name="prodotto"  value = '$cod_prodotto' /></p>
+                                    <p class="italiana-regular"><input class='submit' type='submit' value='ADD TO CART'</p>
+                                </form>
+
                             </div>
                         </div>
                         EOD;
@@ -347,7 +374,11 @@
                                             </ul>
                                             <div class="line-selector"></div>
                                         </div>
-                                            <a class="add-to-cart" href="">Add to cart</a>
+                                            <form action='' method='post'>
+                                                <p style="display:none;"><input type='text' name="prodotto"  value = '$cod_prodotto' /></p>
+                                                <p class="italiana-regular"><input class='submit' type='submit' value='ADD TO CART'</p>
+                                            </form>
+                                            
                                     </div>
                             </div>
                             EOD;
@@ -365,7 +396,10 @@
                                 </ul>
                                 <div class="line-selector"></div>
                             </div>
-                                        <a class="add-to-cart" href="">Add to cart</a>
+                                <form action='' method='post'>
+                                    <p style="display:none;"><input type='text' name="prodotto"  value = '$cod_prodotto' /></p>
+                                    <p class="italiana-regular"><input class='submit' type='submit' value='ADD TO CART'</p>
+                                </form>
                                </div>
                         
                         EOD;
@@ -385,7 +419,10 @@
                                         </ul>
                                         <div class="line-selector"></div>
                                    </div>
-                                        <a class="add-to-cart" href="">Add to cart</a>
+                                    <form action='' method='post'>
+                                            <p style="display:none;"><input type='text' name="prodotto"  value = '$cod_prodotto' /></p>
+                                            <p class="italiana-regular"><input class='submit' type='submit' value='ADD TO CART'</p>
+                                    </form>
                                 </div>
                         
                         EOD;
@@ -394,7 +431,10 @@
             elseif($categoria=="Pendants"){
             echo <<<EOD
                             <div class="bottone1-p reveal">
-                            <a class="add-to-cart" href="">Add to cart</a>
+                            <form action='' method='post'>
+                                <p style="display:none;"><input type='text' name="prodotto"  value = '$cod_prodotto' /></p>
+                                <p class="italiana-regular"><input class='submit' type='submit' value='ADD TO CART'</p>
+                            </form>
                         </div>
                     
                     EOD;
@@ -407,7 +447,7 @@
         <?php 
             require('footer.php');
         ?>	
-
+    
     </div>
 
     <?php 

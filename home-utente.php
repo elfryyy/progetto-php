@@ -68,20 +68,7 @@
         <img class="immagine" src="immagini/logo.jpg" alt="">
     </div>
 
-    <label>
-        <input type="checkbox">
-            <div class="icona">
-                   <img class="img_search"src="immagini/search.png" alt="">
-            </div>
-    </label>
-    <label>
-        <input type="checkbox">
-            <div class="icona">
-                   <a href="pagine/carrello.php">
-                   <img class="img_bag_utente" src="immagini/bag2.png" alt="">
-                   </a>
-            </div>
-    </label>
+
 
 	<?php 
 	  echo"<p class='saluto_utente'>hi, $username</p>"

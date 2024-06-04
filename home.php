@@ -59,29 +59,20 @@
         <img class="immagine" src="immagini/logo.jpg" alt="">
     </div>
 
-    <label>
-        <input type="checkbox">
-            <div class="icona">
-                   <img class="img_search"src="immagini/search.png" alt="">
-            </div>
-    </label>
-    <label>
-        <input type="checkbox">
-            <div class="icona">
-                   <a href="pagine/login.php">
-                   <img class="img_bag"src="immagini/bag2.png" alt="">
-                   </a>
-            </div>
-    </label>
+
 
     <label>
         <input type="checkbox">
             <div class="icona">
-              <a href="login.php">
+              <a href="pagine/login.php">
                   <img class="img_personal"src="immagini/personal-area.png" alt="">
               </a>
             </div>
     </label>
+  
+  	<?php 
+	  echo"<p class='saluto_utente'> access </p>"
+	?>
 
   </div>
 

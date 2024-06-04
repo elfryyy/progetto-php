@@ -158,3 +158,20 @@ section{
     font-weight: lighter;
     text-decoration: line-through;
 }
+
+.submit{
+    background: #000;
+    width: 100%;
+    margin: 0;
+}
+
+.submit-button{
+    width: 35%;
+    height: 60px;
+    background: #222;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+    font-size:40px;
+}
+

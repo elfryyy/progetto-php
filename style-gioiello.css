@@ -439,6 +439,12 @@ https://flickity.metafizzy.co
     background: hsl(0 0% 20% / 100%)
 }
 
+.submit{
+    background: #000;
+    width:100%;  
+    color: #f4f2e6;
+}
+
 
 
 
