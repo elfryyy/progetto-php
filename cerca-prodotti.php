@@ -1,12 +1,12 @@
 <?php
-	// session_start();
-	// //echo session_id();
+	session_start();
+	//echo session_id();
     
-	// if(!isset($_SESSION['username'])){
-	// 	header('location: ../pagine/login.php');
-	// } 
+	if(!isset($_SESSION['username'])){
+		header('location: ../login.php');
+	} 
 	
-	// $username = $_SESSION["username"];
+	$username = $_SESSION["username"];
 	//echo $username;
 
 	require('data/connessione_db.php');
@@ -134,10 +134,10 @@
                                     </div>
                                 </div>
                             EOD;
-                     }   
-                    }else {
-                        echo "<p>Nessun gioiello trovato</p>";
                     }
+                    // else {
+                    //     echo "<p>Nessun gioiello trovato</p>";
+                    // }
                     echo "</table>";
                 }
             }
