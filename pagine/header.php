@@ -19,12 +19,12 @@
                 Our jewels
             </div>
             <div class="details__content-h">
-              <a class="italiana-regular" href="anelli.html">>rings</a>
-              <a class="italiana-regular" href="orecchini.html">>earrings</a>
-              <a class="italiana-regular" href="collane.html">>necklaces</a>
-              <a class="italiana-regular" href="pendants.html">>pendants</a>
-              <a class="italiana-regular" href="newarrivals.html">>new arrivals</a>
-              <a class="italiana-regular" href="prodottiscontati.html">>promotions</a>
+              <a class="italiana-regular" href="pagine/sezione-prodotti.php?categoria=Rings">>rings</a>
+              <a class="italiana-regular" href="pagine/sezione-prodotti.php?categoria=Earrings">>earrings</a>
+              <a class="italiana-regular" href="pagine/sezione-prodotti.php?categoria=Necklaces">>necklaces</a>
+              <a class="italiana-regular" href="pagine/sezione-prodotti.php?categoria=Pendants">>pendants</a>
+              <a class="italiana-regular" href="pagine/sezione-prodotti.php?categoria=New">>new arrivals</a>
+              <a class="italiana-regular color" href="pagine/sezione-prodotti.php?categoria=Discounted">>promotions</a>
             </div>
         </div>
         </li>
